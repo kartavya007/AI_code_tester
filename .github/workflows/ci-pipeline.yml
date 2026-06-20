@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    # Tells GitHub to pull secrets from your specific environment
+    environment: AI_KEY 
 
     steps:
     - uses: actions/checkout@v3
@@ -26,10 +28,14 @@ jobs:
     - name: Install Playwright browsers
       run: |
         playwright install
+
+    # Creates the .env file right before running the code
+    - name: Create .env file
+      run: |
+        echo "AI_KEY=${{ secrets.AI_KEY }}" >> .env
+        echo "AI_MODEL=${{ secrets.AI_MODEL }}" >> .env
     
+    # Your script will now automatically read from the created .env file
     - name: Run main.py
-      env:
-        AI_Key: ${{ secrets.AI_KEY }}
-        AI_Model: ${{ secrets.AI_MODEL }}
       run: |
         python main.py
