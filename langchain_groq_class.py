@@ -6,12 +6,12 @@ import os
 class Agent_class:
     def __init__(self):
         load_dotenv()
-        key = os.getenv('GROQ_API_KEY')
-        model = os.getenv('AI_Model')
+        # key = os.getenv('GROQ_API_KEY')
+        # model = os.getenv('AI_Model')
         self.client = Groq(
-                    api_key=key
+                    api_key="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"
                 )
-        self.model = model
+        self.model = "openai/gpt-oss-120b"
     def html_dom_parser(self , description , dom = None):
         completion = self.client.chat.completions.create(
             model=self.model , 
