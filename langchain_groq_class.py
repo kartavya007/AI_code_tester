@@ -9,7 +9,7 @@ class Agent_class:
         # key = os.getenv('GROQ_API_KEY')
         # model = os.getenv('AI_Model')
         self.client = Groq(
-                    api_key="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"
+                    api_key="***"
                 )
         self.model = "openai/gpt-oss-120b"
     def html_dom_parser(self , description , dom = None):
