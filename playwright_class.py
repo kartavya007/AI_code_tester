@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 from time import sleep
 from langchain_groq_class import Agent_class
 class PersistentBrowser:
-    def __init__(self, Agent : Agent_class , Steps : list = None , headless: bool = False):
+    def __init__(self, Agent : Agent_class , Steps : list = None , headless: bool = True):
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=headless)
         self.context = self.browser.new_context()
