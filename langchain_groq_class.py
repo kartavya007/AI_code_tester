@@ -6,7 +6,7 @@ import os
 class Agent_class:
     def __init__(self):
         load_dotenv()
-        key = os.getenv('AI_Key')
+        key = os.getenv('GROQ_API_KEY')
         model = os.getenv('AI_Model')
         self.client = Groq(
                     api_key=key
