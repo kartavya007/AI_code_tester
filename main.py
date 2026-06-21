@@ -1,8 +1,8 @@
 from playwright_class import PersistentBrowser
 from langchain_groq_class import Agent_class
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
-load_dotenv()
+# load_dotenv()
 key = os.getenv('GROQ_API_KEY')
 ai_model = os.getenv('AI_Model')
 print(key , ai_model)
