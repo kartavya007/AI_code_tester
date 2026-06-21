@@ -4,14 +4,13 @@ from dotenv import load_dotenv
 import os
 
 class Agent_class:
-    def __init__(self):
-        load_dotenv()
+    def __init__(self , key , model):
         # key = os.getenv('GROQ_API_KEY')
         # model = os.getenv('AI_Model')
         self.client = Groq(
-                    api_key="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"
+                    api_key=key
                 )
-        self.model = "openai/gpt-oss-120b"
+        self.model = model
     def html_dom_parser(self , description , dom = None):
         completion = self.client.chat.completions.create(
             model=self.model , 
