@@ -6,13 +6,13 @@ on:
       environment:
         description: 'Environment to deploy to'
         required: true
-        default: 'AI_KEY'
+        default: 'gemini_env'
         type: string
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: AI_KEY
+    environment: gemini_env
 
     steps:
       - name: Checkout repository
@@ -32,28 +32,6 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps
-
-      - name: Verify Environment Configuration
-        env:
-          GROQ_API_KEY_SECRET: ${{ secrets.GROQ_API_KEY }}
-          AI_MODEL_SECRET: ${{ secrets.AI_MODEL }}
-          AI_MODEL_VAR: ${{ vars.AI_MODEL }}
-        run: |
-          echo "=== Diagnostic Check ==="
-          if [ -z "$GROQ_API_KEY_SECRET" ]; then
-            echo "❌ GROQ_API_KEY is missing from Secrets!"
-          else
-            echo "✅ GROQ_API_KEY is loaded successfully."
-          fi
-
-          if [ -n "$AI_MODEL_SECRET" ]; then
-            echo "✅ AI_MODEL found in Secrets (Length: ${#AI_MODEL_SECRET} chars)."
-          elif [ -n "$AI_MODEL_VAR" ]; then
-            echo "⚠️ AI_MODEL found in Variables instead of Secrets (Length: ${#AI_MODEL_VAR} chars)."
-          else
-            echo "❌ AI_MODEL is completely missing from both Secrets and Variables!"
-          fi
-          echo "========================"
 
       # This step handles running the script using the available secret configurations
       - name: Run main.py
