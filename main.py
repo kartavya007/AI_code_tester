@@ -1,5 +1,5 @@
 from playwright_class import PersistentBrowser
-from langchain_groq_class import Agent_class
+from gemini_ai_class import Agent_class
 from dotenv import load_dotenv
 import os
 import json
