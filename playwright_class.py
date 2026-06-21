@@ -15,8 +15,8 @@ class PersistentBrowser:
         self.steps = Steps
         self.agent = Agent
         time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        self.path = f"{folder}\\{time}"
-        Path(self.path).mkdir(parents=True , exist_ok=True)
+        self.path = Path(folder) / time
+        self.path.mkdir(parents=True , exist_ok=True)
     
     def navigate(self , action):
         ans = self.agent.html_dom_parser(action , self.content)
