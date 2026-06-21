@@ -31,7 +31,7 @@ jobs:
     
     - name: load environment secrets
       env: |
-          GROQ_API_KEY=${{ secrets.GROQ_API_KEY }
+          GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
           AI_MODEL=${{ secrets.AI_MODEL }}
 
     # Creates the .env file right before running the code
