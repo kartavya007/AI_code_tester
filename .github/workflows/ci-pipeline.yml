@@ -1,4 +1,4 @@
-name: AI Code Tester CI Pipeline
+name: Gemin AI Code Tester CI Pipeline
 
 on:
   workflow_dispatch: # Enables the manual trigger button
