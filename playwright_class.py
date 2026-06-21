@@ -1,8 +1,11 @@
 from playwright.sync_api import sync_playwright
 from time import sleep
 from langchain_groq_class import Agent_class
+import datetime
+import os
+from pathlib import Path
 class PersistentBrowser:
-    def __init__(self, Agent : Agent_class , Steps : list = None , headless: bool = True):
+    def __init__(self, Agent : Agent_class , folder : str = 'Screenshots' , Steps : list = None , headless: bool = True):
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=headless)
         self.context = self.browser.new_context()
@@ -11,6 +14,9 @@ class PersistentBrowser:
         self.content = None
         self.steps = Steps
         self.agent = Agent
+        time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        self.path = f"{folder}\\{time}"
+        Path(self.path).mkdir(parents=True , exist_ok=True)
     
     def navigate(self , action):
         ans = self.agent.html_dom_parser(action , self.content)
@@ -28,8 +34,12 @@ class PersistentBrowser:
             if steps == None:
                 raise Exception('Steps can not be empty')
             self.steps = steps
+        i = 1
         for step in steps:
             self.navigate(step)
+            screen_shot_name = f"{self.path}\\step{i}.png"
+            self.page.screenshot(path=screen_shot_name)
+            i += 1
         
     def close(self):
         self.browser.close()
