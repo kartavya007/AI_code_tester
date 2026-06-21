@@ -36,6 +36,7 @@ class PersistentBrowser:
             self.steps = steps
         i = 1
         for step in steps:
+            print(step)
             self.navigate(step)
             screen_shot_name = f"{self.path}\\step{i}.png"
             self.page.screenshot(path=screen_shot_name)
@@ -44,19 +45,12 @@ class PersistentBrowser:
     def close(self):
         self.browser.close()
         self.playwright.stop()
-# --- Example Usage ---
+
+
 if __name__ == "__main__":
-    # 1. Initialize and launch
+
     bot = PersistentBrowser(headless=False)
     # page = bot.launch()
     bot.navigate('goto' , 'https://www.saucedemo.com/')
     bot.navigate('fill' , "input[id='user-name']" , 'standard_user')
     bot.close()
-    
-    # 2. Do your automation tasks here
-    
-    # page.goto("https://example.com")
-    # print(f"Page title is: {page.title()}")
-
-    # # 3. Hand control over to the user
-    # bot.keep_alive()
