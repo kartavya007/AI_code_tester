@@ -9,7 +9,7 @@ if __name__ == '__main__':
     key = os.getenv('GROQ_API_KEY')
     ai_model = 'openai/gpt-oss-120b'
     Agent = Agent_class(key=key , model=ai_model)
-    bot = PersistentBrowser(Agent , headless=False)
+    bot = PersistentBrowser(Agent , headless=True)
     f = open('Steps.json')
     dic_steps = json.loads(f.read())
     steps = []
