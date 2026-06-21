@@ -4,7 +4,7 @@ from langchain_groq_class import Agent_class
 import os
 # load_dotenv()
 key = os.getenv('GROQ_API_KEY')
-ai_model = os.getenv('AI_Model')
+ai_model = 'openai/gpt-oss-120b'
 print(key , ai_model)
 Agent = Agent_class(key=key , model=ai_model)
 bot = PersistentBrowser(Agent , headless=True)
