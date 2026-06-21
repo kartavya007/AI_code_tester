@@ -6,8 +6,8 @@ import json
 
 if __name__ == '__main__':
     load_dotenv()
-    key = os.getenv('GROQ_API_KEY')
-    ai_model = 'openai/gpt-oss-120b'
+    key = os.getenv('gemini_api_key')
+    ai_model = 'gemini-3-flash-preview'
     headless = os.getenv('Headless')
     Agent = Agent_class(key=key , model=ai_model)
     bot = PersistentBrowser(Agent , headless=bool(headless))
