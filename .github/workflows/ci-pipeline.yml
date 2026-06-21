@@ -28,11 +28,9 @@ jobs:
         run: |
           playwright install
 
-      - name: Create .env file
+      - name: Run main.py
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
-
-      - name: Run main.py
         run: |
           python main.py
