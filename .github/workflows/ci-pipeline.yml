@@ -6,11 +6,8 @@ on:
       environment:
         description: 'Environment to deploy to'
         required: true
-        default: 'staging'
-        type: choice
-        options:
-          - staging
-          - production
+        default: 'AI_KEY'
+        type: string
 
 jobs:
   test:
