@@ -3,9 +3,7 @@
         "step 2" : "enter the user name 'standard_user'" , 
         "step 3" :"enter the password 'secret_sauce'" ,
         "step 4" : "click login button" ,
-        "step 5" : "navigate to sauce lab bagpack page" , 
-        "step 6" : "Add to cart the bag pack" , 
-        "step 7" : "Back to products page",
-        "step 8" : "Open Menu" , 
-        "step 9" : "click logout"
+        "step 5" : "Back to products page",
+        "step 6" : "Open Menu" , 
+        "step 7" : "click logout"
 }
