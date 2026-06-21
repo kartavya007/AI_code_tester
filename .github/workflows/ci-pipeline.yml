@@ -1,8 +1,16 @@
 name: AI Code Tester CI Pipeline
 
 on:
-  push:
-    branches: [ci-cd-setup]
+  workflow_dispatch: # Enables the manual trigger button
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
 
 jobs:
   test:
