@@ -36,7 +36,7 @@ jobs:
       # This step handles running the script using the available secret configurations
       - name: Run main.py
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           Headless: ${{ vars.HEADLESS }}
           # This fallback syntax ensures it tries secrets first, then variables
           # AI_MODEL: '${{ secrets.AI_MODEL }}'
