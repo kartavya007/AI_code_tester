@@ -6,7 +6,7 @@ load_dotenv()
 key = os.getenv('GROQ_API_KEY')
 ai_model = 'openai/gpt-oss-120b'
 Agent = Agent_class(key=key , model=ai_model)
-bot = PersistentBrowser(Agent , headless=False)
+bot = PersistentBrowser(Agent , headless=True)
 steps = [
     'navigate to the site https://www.saucedemo.com/' , 
     "enter the user name 'standard_user'" , 
