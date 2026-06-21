@@ -8,8 +8,9 @@ if __name__ == '__main__':
     load_dotenv()
     key = os.getenv('GROQ_API_KEY')
     ai_model = 'openai/gpt-oss-120b'
+    headless = os.getenv('Headless')
     Agent = Agent_class(key=key , model=ai_model)
-    bot = PersistentBrowser(Agent , headless=True)
+    bot = PersistentBrowser(Agent , headless=headless)
     f = open('Steps.json')
     dic_steps = json.loads(f.read())
     steps = []
